@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Agenda.Vistas.Principal">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text="Bienvenido a AgendaX" 
+            FontSize="24" 
+            FontAttributes="Bold"
+            HorizontalOptions="Center" 
+            Margin="0,10,0,20"/>
+            <StackLayout Orientation="Horizontal" Margin="0,0,0,20">
+                <Entry Placeholder="Buscar por título" 
+                x:Name="txttitulo" 
+                HorizontalOptions="FillAndExpand" 
+                VerticalOptions="Center"/>
+                <Button Text="Buscar" 
+                x:Name="btnbuscar" 
+                HorizontalOptions="End" 
+                VerticalOptions="Center" 
+                Margin="10,0,0,0"/>
+            </StackLayout>
+            <ListView x:Name="listaActividadesMain">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Title}"></TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Agregar nueva actividad" 
+            x:Name="btnagregar" 
+            HorizontalOptions="FillAndExpand" 
+            VerticalOptions="CenterAndExpand"
+            BackgroundColor="#007ACC"
+            TextColor="White"
+            FontSize="16"/>
+            <Button Text="Acerca de esta app"
+            x:Name="acercade"
+            FontAttributes="Bold"
+            HorizontalOptions="Center" 
+            Margin="0,10,0,20"
+            BackgroundColor="Color.Transparent"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Agenda.Vistas.Edicion">
+    <ContentPage.Content>
+        <StackLayout Margin="10" BackgroundColor="#F5F5F5">
+            <Label Text="Registrar actividad"
+                FontSize="24"
+                Margin="0,20,0,10"
+                TextColor="#333333"
+                HorizontalOptions="Center"/>
+            <Entry x:Name="txttitulo"
+                   Placeholder="Titulo"
+                   Margin="10,0,10,10"
+                   BackgroundColor="White"
+                   TextColor="#333333"
+                   FontSize="16"/>
+            <Entry x:Name="txtcontenido"
+                   Placeholder="Descripcion de la actividad"
+                   Margin="10,0,10,10"
+                   BackgroundColor="White"
+                   TextColor="#333333"
+                   FontSize="16"/>
+            <Entry x:Name="txtediqueta"
+                   Placeholder="Etiqueta"
+                   Margin="10,0,10,10"
+                   BackgroundColor="White"
+                   TextColor="#333333"
+                   FontSize="16"/>
+            <Button Text="Agregar"
+                    x:Name="btnagregar"
+                    Margin="10,20,10,0"
+                    BackgroundColor="#007ACC"
+                    TextColor="White"
+                    FontSize="16"
+                    CornerRadius="5"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
