@@ -38,14 +38,18 @@ namespace Agenda.Vistas
             base.OnAppearing();
         }
 
-        private void Btneliminar_Clicked(object sender, EventArgs e)
+        private async void Btneliminar_Clicked(object sender, EventArgs e)
         {
-            var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "db.db3");
-            var db = new SQLiteConnection(path);
-            delete = Delete(db, idSeleccionado);
-            DisplayAlert("Mensaje", "Se borro la actividad", "OK");
-            Limpiar();
-            Navigation.PushAsync(new Principal());
+            var respuesta = await DisplayAlert("Aviso", "¿Esta seguro que desea eliminar esta actividad?", "Si", "No");
+            if (respuesta)
+            {
+                var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "db.db3");
+                var db = new SQLiteConnection(path);
+                delete = Delete(db, idSeleccionado);
+                DisplayAlert("Mensaje", "Se borro la actividad", "OK");
+                Limpiar();
+                Navigation.PushAsync(new Principal());
+            }
         }
 
         private void Limpiar()

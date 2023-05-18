@@ -22,7 +22,7 @@
                    FontSize="16"
                    FontAttributes="Bold"
                    TextColor="Black"/>
-                <Label Text="Versión 1.0"
+                <Label Text="Versión 1.1"
                    FontSize="16"
                    TextColor="Black"/>
             </StackLayout>

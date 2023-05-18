@@ -59,26 +59,33 @@ namespace Agenda.Vistas
 
         private void Btnbuscar_Clicked(object sender, EventArgs e)
         {
-            try
+            if (!string.IsNullOrWhiteSpace(txttitulo.Text))
             {
-                var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "db.db3");
-                var db = new SQLiteConnection(path);
-                db.CreateTable<Actividades>();
-                IEnumerable<Actividades> resultado = SELECT_WHERE(db, txttitulo.Text.Trim());
-                if (resultado.Count() > 0)
+                try
                 {
-                    DisplayAlert("Aviso","Actividades encontradas","Ok");
-                    //Navigation.PushAsync(new Inicio());
-                    listaActividadesMain.ItemsSource = resultado.ToList();
+                    var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "db.db3");
+                    var db = new SQLiteConnection(path);
+                    db.CreateTable<Actividades>();
+                    IEnumerable<Actividades> resultado = SELECT_WHERE(db, txttitulo.Text.Trim());
+                    if (resultado.Count() > 0)
+                    {
+                        DisplayAlert("Aviso", "Actividades encontradas", "Ok");
+                        //Navigation.PushAsync(new Inicio());
+                        listaActividadesMain.ItemsSource = resultado.ToList();
+                    }
+                    else
+                    {
+                        DisplayAlert("Aviso", "No hay resultados", "Ok");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    DisplayAlert("Aviso", "No hay resultados", "Ok");
+                    DisplayAlert("Error", ex.Message.ToString(), "OK");
                 }
             }
-            catch(Exception)
+            else
             {
-                throw;
+                DisplayAlert("Error", "Introduzca un titulo", "OK");
             }
         }
         protected async override void OnAppearing()
