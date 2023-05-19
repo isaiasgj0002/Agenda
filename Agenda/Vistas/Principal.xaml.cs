@@ -108,7 +108,7 @@ namespace Agenda.Vistas
 
         private IEnumerable<Actividades> SELECT_WHERE(SQLiteConnection db, string titulo)
         {
-            return db.Query<Actividades>("SELECT * FROM Actividades where Title = ?", titulo);
+            return db.Query<Actividades>("SELECT * FROM Actividades WHERE UPPER(Title) LIKE '%' || UPPER(?) || '%'", titulo);
         }
     }
 }
