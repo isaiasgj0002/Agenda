@@ -12,7 +12,6 @@
             <Label Text="Acerca de esta app"
                FontSize="28"
                FontAttributes="Bold"
-               TextColor="Black"
                HorizontalOptions="Center"/>
             <Image Source="iconoappagenda.png"
                Aspect="AspectFit"
@@ -20,12 +19,14 @@
             <StackLayout Spacing="10">
                 <Label Text="App creada por Isaias Guzmán - 2Plo Apps"
                    FontSize="16"
-                   FontAttributes="Bold"
-                   TextColor="Black"/>
-                <Label Text="Versión 1.1"
-                   FontSize="16"
-                   TextColor="Black"/>
+                   FontAttributes="Bold"/>
+                <Label Text="Versión 1.1.1"
+                   FontSize="16"/>
             </StackLayout>
+            <Button Text="Compartir" Clicked="OnShareButtonClicked"
+                    BackgroundColor="LightBlue" TextColor="White"
+                    FontSize="18" FontFamily="Arial"
+                    Margin="10" />  
             <Button Text="Volver"
                 x:Name="btnvolver"
                 BackgroundColor="DarkBlue"
